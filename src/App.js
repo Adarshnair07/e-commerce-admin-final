@@ -5,6 +5,7 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import AddProduct from "./Components/AddProduct/AddProduct";
 import ListProduct from "./Components/ListProduct/ListProduct";
 import EditProduct from "./Components/EditProduct/EditProduct";
+import AddCategory from "./Components/AddCategory/AddCategory";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/test" element={<Sidebar />} />
           <Route path="/Admin" element={<Admin />} />
           <Route path="/addproduct" element={<AddProduct />} /> 
+          <Route path="/addcategory" element={<AddCategory />} /> 
           <Route path="/edit/:productid" element={<EditProduct />} /> 
           <Route path="/listproduct" element={<ListProduct />} />
         </Routes>

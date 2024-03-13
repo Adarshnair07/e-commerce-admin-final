@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import "./AddProduct.css";
 import upload_area from "../Assets/upload_area.svg";
 import { Link } from "react-router-dom";
 
 const AddProduct = () => {
+  const [categories, setCategories] = useState([]);
+    useLayoutEffect(()=>{
+    fetch('http://localhost:4000/categories')
+    .then((res) => res.json())
+    .then((data) => setCategories(data))
+    .then(console.log(categories))
+  },[])
+
   const[image,setImage] = useState(false);
   const [productDetails,setProductDetails] = useState({
       name:"",
@@ -93,6 +101,9 @@ const AddProduct = () => {
           <option value="women">Women</option>
           <option value="men">Men</option>
           <option value="kid">Kid</option>
+          {categories.map((category)=>{
+            return <option value={category.id}>{category.name}</option>
+          })}
         </select> 
       </div>
 
